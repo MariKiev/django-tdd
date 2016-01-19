@@ -26,7 +26,8 @@ class NewVisitorTest(unittest.TestCase):
                          )
 
         # She types "Buy fruits" into a text box
-        inputbox.send_keys('Buy fruits')
+        # inputbox.send_keys("Buy fruits")
+        inputbox.send_keys("Water")
 
         # When she hits enter, the page updates, and now the page lists
         # "1: Buy fruits" as an item in a to-do list
@@ -34,8 +35,8 @@ class NewVisitorTest(unittest.TestCase):
 
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(any(row.text == "1: Buy fruits" for row in rows),
-                        "New to-do item did not appear in table")
+        self.assertIn("1: Buy fruits", [row.text for row in rows])
+        self.assertIn("2: Water", [row.text for row in rows])
 
         # There is still a text box inviting her to add another item. She
         # enters "Use peacock feathers to make a fly" (Edith is very methodical)
