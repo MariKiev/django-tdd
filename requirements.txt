@@ -1,2 +1,2 @@
 Django==1.9.2
-django-bootstrap-pagination-1.5.1
+django-bootstrap-pagination==1.5.1
