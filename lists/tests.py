@@ -97,3 +97,6 @@ class NewListTest(TestCase):
     def test_redirect_after_POST(self):
         response = self.client.post('/lists/new', data={"item_text": "A new list item"})
         self.assertRedirects(response, "/lists/user-1/")
+
+    def new_test(self):
+        pass
